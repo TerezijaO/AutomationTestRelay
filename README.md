@@ -1,1 +1,1 @@
-# Naslov 1   Cypress 04/2025
+# Cypress 04/2025
