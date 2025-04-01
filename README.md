@@ -2,8 +2,9 @@
 ## Prerequisites
 To run locally you need to have Node.js and yarn
 ## Installing dependencies
+``
 https://docs.cypress.io/app/get-started/install-cypress
-https://docs.cypress.io/app/get-started/open-the-app
+https://docs.cypress.io/app/get-started/open-the-app ``
 ## Running tests
 ### Run all tests
 yarn cy:run - not recommended because tests are written to run in the order
