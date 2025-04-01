@@ -9,7 +9,7 @@
 ` yarn cy:run - not recommended because tests are written to run in the order `
 ### Instead use this command:
 ` yarn cy:all `
-### To run only relese tests 
+### To run only release tests 
 ` yarn cy:release `
 ### Run specific test
 ` yarn cy:run --browser chrome --spec <path> `
