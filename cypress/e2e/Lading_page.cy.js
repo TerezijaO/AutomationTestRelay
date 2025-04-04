@@ -10,7 +10,7 @@ describe('Landing Page Test', () => {
   });
 
   it ('Clicking Relay logo leads to the homepage', () => {
-    cy.contains('Relay').click();
+    cy.get('.css-1nf9552').contains('Relay').click();
     cy.url().should('eq', 'https://relay.prototyp.digital/');
     });
   
