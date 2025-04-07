@@ -34,9 +34,8 @@ describe('"All" section should show products from all categories', () => {
      })
 
      it ('"Visit" button leads to external redirection', () => {
-        cy.wait(6000);
+      cy.get(':nth-child(1) > div > .css-1m73zxv > .css-1qqgne3').first().click();
         cy.get('.css-scukn3', { timeout: 10000 }).contains('Visit').click();
-        cy.wait(5000);
         cy.origin('https://www.behance.net', () => {
         cy.url().should('include', '/gallery/105545919/Canal-Brasil');
         });
