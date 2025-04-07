@@ -37,13 +37,12 @@ describe('Landing Page Test', () => {
     });
 });
 
-  it ('Footer link redirects to the Prototyp website', () => {
-    cy.get('footer a').contains('PROTOTYP').click();
-    cy.origin('https://prototyp.digital', () => {
-    cy.url().should('include', 'https://prototyp.digital');
-  });
+it ('Footer link redirects to the Prototyp website', () => {
+  cy.get('footer a').contains('PROTOTYP').click();
+  cy.origin('https://prototyp.digital', () => {
+  cy.url().should('include', 'https://prototyp.digital');
 });
-
+});
 
     
 })
