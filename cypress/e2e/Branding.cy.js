@@ -1,6 +1,7 @@
-describe('"Webites" section', () => {
+describe( '"Branding" section', () => {
     beforeEach (() => {
-        cy.visit('https://relay.prototyp.digital/category/websites');
+        cy.visit ('https://relay.prototyp.digital/category/branding')
+
     })
 
     it('Clicking on the card redirects to the detail page', () => {
@@ -11,22 +12,22 @@ describe('"Webites" section', () => {
     it('"Visit" button redirects to the external page', () => {
         cy.get('[href*="/article/"]').first().click();
         cy.get('.css-scukn3').contains('Visit').click();
-        cy.origin('https://eiger-extreme.mammut.com/en', () => {
-            cy.url().should('include', 'https://eiger-extreme.mammut.com/en');
+        cy.origin('https://www.behance.net/', () => {
+            cy.url().should('include', 'https://www.behance.net/gallery/105545919/Canal-Brasil');
         })
 
     })
 
-    it('"Websites" section link leads to the previous page', () => {
+    it('"Branding" section link leads to the previous page', () => {
         cy.get('[href*="/article/"]').first().click();
-        cy.get('.css-1w4tnhi').contains('Website').click();
-        cy.url().should('include','category/websites');
+        cy.get('.css-1w4tnhi').contains('Branding').click();
+        cy.url().should('include','category/branding');
 
     })
 
-    it('Category link in the card description leads to the "Websites"', () => {
-        cy.get('[href="/category/websites"]').first().click();
-        cy.url().should('include', '/category/websites');
+    it('Category link in the card description leads to the "Branding"', () => {
+        cy.get('[href="/category/branding"]').first().click();
+        cy.url().should('include', '/category/branding');
 
      })
 
