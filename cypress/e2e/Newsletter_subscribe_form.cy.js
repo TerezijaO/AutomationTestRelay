@@ -5,22 +5,22 @@ describe('Newsletter subscribe form', () => {
     })
 
     it('Fills in your name', () => {
-        cy.get('input[name="Your name"]').type('Terezija');
+        cy.get('#mce-FNAME').type('Terezija');
 
     })
 
     it('Fills in your email', () => {
-        cy.get('input[email="Your e-mail"]').type('test@gmail.com');
+        cy.get('#mce-EMAIL').type('test@gmail.com');
 
     })
 
     it('Checks the checkbox', () => {
-        cy.get('input[checkbox="Yes, I agree"]').check({ forse : true });
+        cy.get('#gdpr_70020').check();
 
     })
 
     it('Clicks the "Subscribe" button', () => {
-        cy.get().contains('Subscribe').click();
+        cy.get('#mc-embedded-subscribe').contains('Subscribe').click();
 
     })
     
