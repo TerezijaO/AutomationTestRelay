@@ -24,7 +24,26 @@ describe('Newsletter subscribe form', () => {
 
     })
     
+//Negative test
 
+    it('Leaving the "Your name" field empty', () => {
+        cy.get('#mce-FNAME').clear();
+  })
+
+     it('Entering an invalid email address', () => {
+        cy.get('#mce-EMAIL').type('invalidemail');
+  })
+
+     it('Leaving the checkbox unchecked', () => {
+        cy.get('#gdpr_70020').uncheck();
+    })
+
+     it('Clicking the "Subscribe" button', () => {
+        cy.get('#mc-embedded-subscribe').click();   
+        
+   })
+
+})
 
     
 
@@ -43,4 +62,4 @@ describe('Newsletter subscribe form', () => {
 
 
 
-})
+
