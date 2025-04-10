@@ -40,7 +40,16 @@ describe( '"Product design" section', () => {
      it('Checks header and footer consistency', () => {
         cy.get('.css-153o6lq').should('exist'); 
         cy.get('.css-18b7gb6').should('exist'); 
-      });
+      })
+
+      //Negative test
+
+      it('The “Product Design” section should not contain articles from any other section', () => {
+        cy.visit('https://relay.prototyp.digital/category/product-design');
+        cy.get('.css-8ky4nb').each(($el) => {
+            expect($el.text()).to.include('Product Design');
+        })
+    })
     
 
 })
