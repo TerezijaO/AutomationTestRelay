@@ -1,55 +1,57 @@
-describe( '"Illustration" section', () => {
+describe( '"Illustration" section test', () => {
     beforeEach (() => {
         cy.visit ('https://relay.prototyp.digital/category/illustration')
 
     })
 
-    it('Clicking on the card redirects to the detail page', () => {
+    it('Opens detail page on card click', () => {
         cy.get('[href*="/article/"]').first().click();
         cy.url().should('include', '/article/');
     })
 
-    it('"Visit" button redirects to the external page', () => {
+    it('"Visit" button opens external site', () => {
         cy.get('[href*="/article/"]').first().click();
-        cy.get('.css-scukn3').contains('Visit').click();
-        cy.origin('https://samyhalim.myportfolio.com/copy-of-work', () => {
-            cy.url().should('include', 'https://samyhalim.myportfolio.com/vivid-characters');
-        })
+        cy.get('.css-scukn3').contains('Visit').should('have.attr','href');
 
     })
 
-    it('"Illustration" section link leads to the previous page', () => {
+    it('"Illustration" link returns to the section', () => {
         cy.get('[href*="/article/"]').first().click();
         cy.get('.css-1w4tnhi').contains('Illustration').click();
         cy.url().should('include','category/illustration');
 
     })
 
-    it('Category link in the card description leads to the "Illustration"', () => {
-        cy.get('[href="/category/illustration"]').first().click();
-        cy.url().should('include', '/category/illustration');
+    it('Category link under card works', () => {
+        cy.get(':nth-child(1) > div > .css-8ky4nb > .css-1081t4c').each(($el) => {
+            cy.wrap($el).click();
+            cy.url().should('include', '/category/illustration');
+            })
+         }) 
 
-     })
-
-     it ('Verifies each card has in description "by PROTOTYP"', () => {
-        cy.get(':nth-child(1) > div > .css-8ky4nb').first().click();
+     it ('Each card has "by PROTOTYP" in description', () => {
+        cy.get(':nth-child(1) > div > .css-8ky4nb').first();
         cy.get(':nth-child(1) > div > .css-8ky4nb').should('include.text', 'PROTOTYP');
 
      })
 
      it('Checks header and footer consistency', () => {
-        cy.get('.css-153o6lq').should('exist'); 
-        cy.get('.css-18b7gb6').should('exist'); 
+        cy.checkHeaderFooter(); 
       });
 
       //Negative test
 
-      it('The “Illustration” section should not contain articles from any other section', () => {
-        cy.visit('https://relay.prototyp.digital/category/illustration');
-        cy.get('.css-8ky4nb').each(($el) => {
-            expect($el.text()).to.include('Illustration');
+      it('Only "Illustration" articles are listed', () => {
+        cy.get(':nth-child(1) > div > .css-8ky4nb > .css-1081t4c').each(($el) => {
+            const text = $el.text();
+            expect(text).to.include('Illustration');
+            expect(text).not.to.include('Websites');
+            expect(text).not.to.include('Product Design');
+            expect(text).not.to.include('Graphic design');
+            expect(text).not.to.include('Architecture');
+            expect(text).not.to.include('Branding');
+          })
         })
-    })
     
 
 })

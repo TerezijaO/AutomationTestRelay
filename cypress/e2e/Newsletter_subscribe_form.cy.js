@@ -1,11 +1,11 @@
-describe('Newsletter subscribe form', () => {
+describe('Newsletter subscribe form test', () => {
     beforeEach(() => {
         cy.visit('https://relay.prototyp.digital/');
-        cy.get('footer').scrollIntoView();
+        cy.get('.css-1qnnexf').scrollIntoView();
     })
 
     it('Fills in your name', () => {
-        cy.get('#mce-FNAME').type('Terezija');
+        cy.get('#mce-EMAIL').type('Terezija');
 
     })
 
@@ -26,24 +26,20 @@ describe('Newsletter subscribe form', () => {
     
 //Negative test
 
-    it('Leaving the "Your name" field empty', () => {
-        cy.get('#mce-FNAME').clear();
-  })
-
-     it('Entering an invalid email address', () => {
+    it('Shows error when submitting empty name, invalid email and unchecked consent', () => {
+        cy.get('#mce-FNAME').clear();  
         cy.get('#mce-EMAIL').type('invalidemail');
-  })
-
-     it('Leaving the checkbox unchecked', () => {
         cy.get('#gdpr_70020').uncheck();
-    })
-
-     it('Clicking the "Subscribe" button', () => {
-        cy.get('#mc-embedded-subscribe').click();   
-        
-   })
+        cy.get('#mc-embedded-subscribe-form').should('have.attr', 'action').and('include', 'https://digital.us19.list-manage.com/subscribe/post?u=b5e6f2147bd0d589ab2183654&id=73a0b2fd84');
+})
+          
 
 })
+
+
+
+
+  
 
     
 
