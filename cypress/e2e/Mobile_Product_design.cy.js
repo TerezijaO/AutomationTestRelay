@@ -1,6 +1,7 @@
-describe( '"Architecture" section test', () => {
+describe( '"Product design" section test', () => {
     beforeEach (() => {
-        cy.visit ('https://relay.prototyp.digital/category/architecture')
+        cy.viewport('iphone-x');
+        cy.visit ('https://relay.prototyp.digital/category/product-design')
 
     })
 
@@ -15,20 +16,19 @@ describe( '"Architecture" section test', () => {
 
     })
 
-    it('"Architecture" link returns to section page', () => {
+    it('"Product design" link returns to the section', () => {
         cy.get('[href*="/article/"]').first().click();
-        cy.get('.css-1w4tnhi').contains('Architecture').click();
-        cy.url().should('include','category/architecture');
+        cy.get('.css-8bd45e').contains('Product Design').click();
+        cy.url().should('include','category/product-design');
 
     })
 
-    it('Category link under card works', () => {
+    it('Category link in the card description works', () => {
         cy.get(':nth-child(1) > div > .css-8ky4nb > .css-1081t4c').each(($el) => {
             cy.wrap($el).click();
-            cy.url().should('include', '/category/architecture');
+            cy.url().should('include', '/category/product-design');
             })
-     })
-
+         })
 
      it ('Each card has "by PROTOTYP" in description', () => {
         cy.get(':nth-child(1) > div > .css-8ky4nb').first();
@@ -41,19 +41,18 @@ describe( '"Architecture" section test', () => {
       });
 
       //Negative test
-    
-    it('Only "Architecture" articles are listed', () => {
-        cy.get(':nth-child(1) > div > .css-8ky4nb > .css-1081t4c').each(($el) => {
-          const text = $el.text();
-          expect(text).to.include('Architecture');
-          expect(text).not.to.include('Websites');
-          expect(text).not.to.include('Product Design');
-          expect(text).not.to.include('Illustration');
-          expect(text).not.to.include('Branding');
-          expect(text).not.to.include('Graphic Design');
-        })
-      })
-      
 
+      it('Only “Product Design” articles are listed', () => {
+        cy.get(':nth-child(1) > div > .css-8ky4nb > .css-1081t4c').each(($el) => {
+            const text = $el.text();
+            expect(text).to.include('Product Design');
+            expect(text).not.to.include('Websites');
+            expect(text).not.to.include('Illustration');
+            expect(text).not.to.include('Graphic design');
+            expect(text).not.to.include('Architecture');
+            expect(text).not.to.include('Branding');
+          })
+        })
+    
 
 })

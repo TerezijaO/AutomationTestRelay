@@ -1,5 +1,6 @@
 describe( '"Architecture" section test', () => {
     beforeEach (() => {
+        cy.viewport('iphone-x');
         cy.visit ('https://relay.prototyp.digital/category/architecture')
 
     })
