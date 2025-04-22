@@ -96,8 +96,8 @@ describe('"All" section test', () => {
            const author = $el.text();
            expect(author).to.include('by PROTOTYP');
            expect(author).not.to.include('Terezija');
-         });
-       });
+         })
+       })
        
 
 })

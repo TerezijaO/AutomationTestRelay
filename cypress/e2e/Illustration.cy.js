@@ -37,7 +37,7 @@ describe( '"Illustration" section test', () => {
 
      it('Checks header and footer consistency', () => {
         cy.checkHeaderFooter(); 
-      });
+      })
 
       //Negative test
 

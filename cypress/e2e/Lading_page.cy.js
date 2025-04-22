@@ -28,13 +28,13 @@ describe('Landing page test', () => {
       cy.get(':nth-child(1) > div > .css-1m73zxv > img').each(($el) => {
       cy.wrap($el).click();
       cy.go('back'); 
-    });
+    })
 
       cy.get(':nth-child(1) > div > .css-1m73zxv > .css-1qqgne3').each(($el) => {
       cy.wrap($el).click();
       cy.go('back'); 
-    });
-  });
+    })
+  })
 
 
   it ('Cards have category name and description "by PROTOTYP"', () => {
