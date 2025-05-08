@@ -13,7 +13,7 @@ describe('"Websites" section test', () => {
     it('"Visit" button opens external site', () => {
         // Clicking the first article to access its detail view.
         cy.get('[href*="/article/"]').first().click();
-         //Asserting that the "Visit" button has a external link.
+         // Asserting that the "Visit" button has a external link.
         cy.get('.css-scukn3').contains('Visit').should('have.attr','href');
     })    
 
@@ -22,7 +22,7 @@ describe('"Websites" section test', () => {
         cy.get('[href*="/article/"]').first().click();
          // Clicking on the "Websites" link on the detail page to return.
         cy.get('.css-1w4tnhi').contains('Website').click();
-        //Verify that we are back the "Websites" page.
+        // Verify that we are back on the "Websites" page.
         cy.url().should('include','category/websites');
 
     })
@@ -31,7 +31,7 @@ describe('"Websites" section test', () => {
         // Each card has a category label - clicking it should return to the same category.
         cy.get(':nth-child(1) > div > .css-8ky4nb > .css-1081t4c').each(($el) => {
             cy.wrap($el).click();
-             //Confirming that we are on the right page (Websites).
+             // Confirming that we are on the right page (Websites).
             cy.url().should('include', '/category/websites');
             })
          }) 
@@ -44,9 +44,9 @@ describe('"Websites" section test', () => {
      })
 
      it('Checks header and footer consistency', () => {
-        //Checking if footer and header stays the same while going trough page, there is a command for this test in the support.
+        // Checking if the footer and the header stays the same while going trough page, there is a command for this test in the support.
         cy.checkHeaderFooter();
-      });
+      })
 
     //Negative test
 

@@ -83,7 +83,7 @@ describe('Landing page test', () => {
   it('Last page has only "Previous page" button', () => {
     // Directly visit the last page.
     cy.visit('https://relay.prototyp.digital/?direction=next&page=YXJyYXljb25uZWN0aW9uOjc5');
-     // Ensure "Next page" button is not visible on the last page.
+     // Ensure the "Next page" button is not visible on the last page.
     cy.get('.css-scukn3').contains('Next page').should('not.exist');
 })
 

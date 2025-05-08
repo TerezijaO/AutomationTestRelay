@@ -23,7 +23,7 @@ describe( '"Branding" section test', () => {
         cy.get('[href*="/article/"]').first().click();
         // Clicking on the "Branding" link on the detail page to return.
         cy.get('.css-1w4tnhi').contains('Branding').click();
-        //Verify that we are back the "Branding" page.
+        //Verify that we are back on the "Branding" page.
         cy.url().should('include','category/branding');
 
     })
@@ -43,7 +43,7 @@ describe( '"Branding" section test', () => {
      })
 
      it('Checks header and footer consistency', () => {
-        //Checking if footer and header stays the same while going trough page, there is a command for this test in the support.
+        //Checking if the footer and the header stays the same while going trough page, there is a command for this test in the support.
         cy.checkHeaderFooter();
       })
 

@@ -21,11 +21,11 @@ describe('Newsletter subscribe form test', () => {
 //Negative test
 
     it('Shows error when submitting empty name, invalid email and unchecked consent', () => {
-        // Clear input field name
+        // Clear input field name.
         cy.get('#mce-FNAME').clear();  
-        // Enter an invalid email
+        // Enter an invalid email.
         cy.get('#mce-EMAIL').type('invalidemail');
-        // Ensure the consent checkbox is unchecked
+        // Ensure the consent checkbox is unchecked.
         cy.get('#gdpr_70020').uncheck();
           // Assert that the form still has the correct button, but the form should not submit successfully.
         cy.get('#mc-embedded-subscribe-form').should('have.attr', 'action').and('include', 'https://digital.us19.list-manage.com/subscribe/post?u=b5e6f2147bd0d589ab2183654&id=73a0b2fd84');

@@ -20,13 +20,13 @@ describe('Landing page test', () => {
       it ('Navigate through pages with Next and Previuos buttons', () => {
         // Click the "Next page" button to go to next page.
         cy.get('.css-scukn3').contains('Next page').click();
-        // Click the "Previuos page" button return to the previuos page.
+        // Click the "Previuos page" button to return to the previuos page.
         cy.get('[href="/?direction=previous&page=YXJyYXljb25uZWN0aW9uOjIw"]').contains('Previous page').click();
   
       })
   
     it ('Page shows max 20 cards', () => {
-      // Verify that the number of cards on the page is not more than 20.
+      // Verify that the number of the cards on the page is not more than 20.
       cy.get('.css-18q7hyh > :nth-child(1) > div').should('have.length.lessThan', 20);
     })
   

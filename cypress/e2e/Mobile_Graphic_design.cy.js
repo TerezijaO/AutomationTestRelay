@@ -22,7 +22,7 @@ describe('"Graphic design" section test', () => {
         cy.get('[href*="/article/"]').first().click();
         // Clicking on the "Graphic Design" link on the detail page to return.
         cy.get('.css-1w4tnhi').contains('Graphic design').click();
-        //Verify that we are back the "Graphic Design" page.
+        //Verify that we are back on the "Graphic Design" page.
         cy.url().should('include', 'category/graphic-design');
     })
 
@@ -40,7 +40,7 @@ describe('"Graphic design" section test', () => {
     })
 
     it('Checks header and footer consistency', () => {
-        //Checking if footer and header stays the same while going trough page, there is a command for this test in the support.
+        //Checking if the footer and the header stays the same while going trough page, there is a command for this test in the support.
         cy.checkHeaderFooter();
     })
 
@@ -48,7 +48,7 @@ describe('"Graphic design" section test', () => {
 
     it('Only "Graphic design" articles are listed', () => {
         cy.get(':nth-child(1) > div > .css-8ky4nb > .css-1081t4c').each(($el) => {
-            // Checking that the category name under each card is strictly "Graphic Design", if any other category occurs test should fail.
+            // Checking that the category name under each card is strictly "Graphic Design", if any other category occurs the test should fail.
             const text = $el.text();
             expect(text).to.eq('Graphic design');
             

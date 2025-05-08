@@ -81,7 +81,7 @@ describe('Regression test', () => {
   it ('"Visit" button leads to external redirection', () => {
      const categories = ['websites', 'product-design', 'illustration', 'architecture', 'branding', 'graphic-design'];
      categories.forEach(category =>{
-      // Visit each category page
+      // Visit each category page.
          cy.visit(`https://relay.prototyp.digital/category/${category}`);
          // For each card, click and verify that the "Visit" button has an external link.
          cy.get(':nth-child(1) > div > .css-1m73zxv').each(($el, $list) => {

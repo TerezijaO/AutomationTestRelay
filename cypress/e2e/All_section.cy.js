@@ -5,7 +5,7 @@ describe('"All" section test', () => {
     })
 
     it('Contains articles from all categories', () => {
-      //Verifing that we are on correct URL. 
+      //Verifying that we are on correct URL. 
       cy.url().should('eq', 'https://relay.prototyp.digital/');
       //Checking if every category is shown, and that every category name has a link.
       const expectedCategories = ['Websites', 'Product Design', 'Illustration', 'Architecture', 'Branding', 'Graphic design'];
@@ -29,7 +29,7 @@ describe('"All" section test', () => {
     it('Verifies that all text elements are correctly forrmated', () => {
       //Checking the font size of the "Relay" title - should be 24px.
          cy.get('.css-1nf9552').should('have.css', 'font-size', '24px');
-         //Checking the font size of category names - should be 12px.
+         //Checking the font size of the category names - should be 12px.
          cy.get('.css-nzumy8').each(($el) => {
             cy.wrap($el).should('have.css', 'font-size', '12px');
          })
@@ -44,7 +44,7 @@ describe('"All" section test', () => {
         
 })
 
-      //Verifing that after clicking on the card, detail page opens with following information:
+      //Verifying that after clicking on the card, detail page opens with following information:
       //image, title, "Visit" button, link that leads to the previous page and article description.
      it('Opens correct detail page when clicking a card', () => {
         cy.get(':nth-child(1) > div > .css-1m73zxv > img').first().click();
@@ -59,7 +59,7 @@ describe('"All" section test', () => {
 
      it ('"Visit" button leads to external redirection', () => {
       cy.get(':nth-child(1) > div > .css-1m73zxv > .css-1qqgne3').first().click();
-      //Visit button should have link that leads to the external website.
+      //Visit button should have a link that leads to the external website.
       cy.get('.css-scukn3', { timeout: 10000 }).contains('Visit').should('have.attr','href');
                
       })
@@ -78,7 +78,7 @@ describe('"All" section test', () => {
     })
      
      it('Category link under image works correctly', () => {
-         //Checking if each link under the article works correctly, after every click user is taken back the landing page.
+         //Checking if each link under the article works correctly, after every click user is taken back to the landing page.
          cy.get(':nth-child(1) > div > .css-8ky4nb > .css-1081t4c').each(($el) => {
          cy.wrap($el).click();
          cy.url().should('include', '/category/');
@@ -95,7 +95,7 @@ describe('"All" section test', () => {
     })
 
      it('Checks header and footer consistency', () => {
-      //Checking if footer and header stays the same while going trough page, there is a command for this test in the support.
+      //Checking if the footer and the header stays the same while going trough page, there is a command for this test in the support.
       cy.checkHeaderFooter();
       })
     

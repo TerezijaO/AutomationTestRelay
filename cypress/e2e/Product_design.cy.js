@@ -21,7 +21,7 @@ describe( '"Product design" section test', () => {
         cy.get('[href*="/article/"]').first().click();
         // Clicking on the "Product Design" link on the detail page to return.
         cy.get('.css-8bd45e').contains('Product Design').click();
-        //Verify that we are back the "Product Design" page.
+        //Verify that we are back on the "Product Design" page.
         cy.url().should('include','category/product-design');
 
     })
@@ -41,7 +41,7 @@ describe( '"Product design" section test', () => {
      })
 
      it('Checks header and footer consistency', () => {
-        //Checking if footer and header stays the same while going trough page, there is a command for this test in the support.
+        //Checking if the footer and the header stays the same while going trough page, there is a command for this test in the support.
         cy.checkHeaderFooter();
       })
 

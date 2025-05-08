@@ -14,7 +14,7 @@ describe( '"Branding" section test', () => {
     it('"Visit" button opens the external page', () => {
          // Clicking the first article to access its detail view.
         cy.get('[href*="/article/"]').first().click();
-         //Asserting that the "Visit" button has a external link.
+         // Asserting that the "Visit" button has a external link.
         cy.get('.css-scukn3').contains('Visit').should('have.attr','href');
 
     })
@@ -23,7 +23,7 @@ describe( '"Branding" section test', () => {
         cy.get('[href*="/article/"]').first().click();
         // Clicking on the "Branding" link on the detail page to return.
         cy.get('.css-1w4tnhi').contains('Branding').click();
-        //Verify that we are back the "Branding" page.
+        // Verify that we are back on the "Branding" page.
         cy.url().should('include','category/branding');
 
     })
@@ -32,7 +32,7 @@ describe( '"Branding" section test', () => {
         // Each card has a category label - clicking it should return to the same category.
         cy.get(':nth-child(1) > div > .css-8ky4nb > .css-1081t4c').each(($el) => {
             cy.wrap($el).click();
-            //Confirming that we are on the right page (Branding).
+            // Confirming that we are on the right page (Branding).
             cy.url().should('include', '/category/branding');
             })
      })
@@ -43,7 +43,7 @@ describe( '"Branding" section test', () => {
      })
 
      it('Checks header and footer consistency', () => {
-         //Checking if footer and header stays the same while going trough page, there is a command for this test in the support.
+         // Checking if footer and header stays the same while going trough page, there is a command for this test in the support.
         cy.checkHeaderFooter();
       })
 
@@ -51,7 +51,7 @@ describe( '"Branding" section test', () => {
 
       it('Only "Branding" articles are listed', () => {
         cy.get(':nth-child(1) > div > .css-8ky4nb > .css-1081t4c').each(($el) => {
-            // Checking that the category name under each card is strictly "Branding", if any other category occurs test should fail.
+            // Checking that the category name under each card is strictly "Branding", if any other category occurs the test should fail.
             const text = $el.text();
             expect(text).to.eq('Branding');
             
