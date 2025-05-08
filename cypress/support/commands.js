@@ -1,3 +1,20 @@
+
+  Cypress.Commands.add('checkHeaderFooter', () => {
+    cy.get('.css-153o6lq').contains('Relay').should('be.visible');
+    cy.get('.css-y4nc58').contains('Relay is a cool gadget made by PROTOTYP in the year 2025. Our main goal is world domination by link sharing.').should('be.visible');
+  });
+  
+
+
+
+
+
+
+
+
+
+
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
